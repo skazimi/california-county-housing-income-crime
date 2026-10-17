@@ -63,7 +63,13 @@ data/raw/ca_violent_crime_raw.csv
 
 ### ACS API Key
 
-The ACS Census API key is not included in the code for privacy. In case of having a key, we should set it in Terminal before running the project:
+The ACS Census API key is not included in the code for privacy. Get a free key at https://api.census.gov/data/key_signup.html, then copy the example file and paste the key into `.env`:
+
+```bash
+cp .env.example .env
+```
+
+`.env` is listed in `.gitignore`, so the key is never committed. Setting it in Terminal also works:
 
 ```bash
 export ACS_API_KEY="API_KEY_HERE"
