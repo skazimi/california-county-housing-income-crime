@@ -6,11 +6,13 @@ import os
 import json         
 import requests     
 import pandas as pd 
+from dotenv import load_dotenv
 from scraper import extract_california_latest, find_zillow_dataset, write_csv
 
 raw_data_folder="data/raw"  # The original raw data files before cleaning stores in this folder.
 os.makedirs(raw_data_folder,exist_ok=True)  # Makes the data/raw folder if it doesn't already exist. exist_ok=True meaning if the folder already exist, don't give error, continue.
 
+load_dotenv()  # Loads variables from the .env file in the project folder, if it exists.
 ACS_API_KEY=os.getenv("ACS_API_KEY")  # Gets the ACS API key from the environment variable, and keeps it out of the code file for privacy.
 ACS_URL=("https://api.census.gov/data/2024/acs/acs5" # Downloads 2024 county level median household income data.
            "?get=NAME,B19013_001E"  # get=NAME (county name), B19013_001E (median household income estimate)
